@@ -1,44 +1,79 @@
-body{
-  font-family: Arial, Helvetica, sans-serif;
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
 }
 
-.container{
+/* Main container */
+.container {
   width: 700px;
-  margin: auto;
+  margin-top: 40px;
   text-align: center;
 }
 
-h1{
+/* Heading */
+h1 {
+  text-align: center;
   margin-bottom: 20px;
 }
 
-form{
+/* Form */
+form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
   margin-bottom: 20px;
 }
 
-input{
+input {
   padding: 8px;
-  margin: 5px;
-  width: 150px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-button{
-  padding: 8px 12px;
-  margin: 5px;
+/* Center Download Button */
+.download-container {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.download-btn {
+  padding: 8px 16px;
+  border: none;
+  background-color: #217346;
+  color: white;
+  border-radius: 5px;
   cursor: pointer;
+  font-weight: bold;
 }
 
-table{
+.download-btn:hover {
+  background-color: #1e6a3f;
+}
+
+/* Table */
+table {
   width: 100%;
   border-collapse: collapse;
-}
-
-th, td{
-  border: 1px solid #ccc;
-  padding: 10px;
   text-align: center;
+  margin-top: 10px;
 }
 
-th{
-  background-color: #f2f2f2;
+/* Sky Blue Header */
+th {
+  background-color: #87ceeb;
+  color: black;
+  padding: 10px;
+}
+
+td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+  background-color: #f1f5f9;
 }
