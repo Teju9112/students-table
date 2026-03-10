@@ -1,12 +1,12 @@
 [
   {
-    "Name": "Rahul",
-    "Email": "rahul@gmail.com",
-    "Age": 21
+    "name": "Rahul",
+    "email": "rahul@gmail.com",
+    "age": 21
   },
   {
-    "Name": "Anjali",
-    "Email": "anjali@gmail.com",
-    "Age": 22
+    "name": "Anjali",
+    "email": "anjali@gmail.com",
+    "age": 22
   }
 ]

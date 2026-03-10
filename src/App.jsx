@@ -6,10 +6,12 @@ import "./App.css";
 import * as XLSX from "xlsx";
 
 function App() {
+
   const [students, setStudents] = useState(() => {
     const savedStudents = localStorage.getItem("students");
     return savedStudents ? JSON.parse(savedStudents) : data;
   });
+
   const [editStudent, setEditStudent] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -17,19 +19,19 @@ function App() {
     setStudents([...students, student]);
   };
 
-  const deleteStudent = (id) => {
+  const deleteStudent = (index) => {
     const confirmDelete = window.confirm("Are you sure you want to delete?");
     if (confirmDelete) {
-      const updatedStudents = students.filter((student) => student.id !== id);
+      const updatedStudents = students.filter((_, i) => i !== index);
       setStudents(updatedStudents);
     }
   };
 
   const updateStudent = (updatedStudent) => {
-    const updatedList = students.map((student) =>
-      student.id === updatedStudent.id ? updatedStudent : student
+    const updatedStudents = students.map((student, index) =>
+      index === editStudent.index ? updatedStudent : student
     );
-    setStudents(updatedList);
+    setStudents(updatedStudents);
     setEditStudent(null);
   };
 
@@ -39,6 +41,7 @@ function App() {
       Email: student.email,
       Age: student.age,
     }));
+
     const worksheet = XLSX.utils.json_to_sheet(excelData);
     const workbook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(workbook, worksheet, "Students");
@@ -57,15 +60,18 @@ function App() {
 
   return (
     <div className="container">
+
       <h1>Students Table</h1>
+
       <StudentForm
         addStudent={addStudent}
         editStudent={editStudent}
         updateStudent={updateStudent}
         setEditStudent={setEditStudent}
       />
+
       {loading ? (
-        <p>Loading students...</p>
+        <p style={{textAlign:"center"}}>Loading students...</p>
       ) : (
         <StudentTable
           students={students}
@@ -73,10 +79,12 @@ function App() {
           setEditStudent={setEditStudent}
         />
       )}
-      <br></br>
+
+      <br/>
+
       <div className="download-container">
         <button className="download-btn" onClick={downloadExcel}>
-        Download Excel
+           Download Excel
         </button>
       </div>
 
@@ -84,4 +92,4 @@ function App() {
   );
 }
 
-export default App
+export default App;

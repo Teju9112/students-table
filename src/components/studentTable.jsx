@@ -10,14 +10,20 @@ function StudentTable({ students, deleteStudent, setEditStudent }) {
         </tr>
       </thead>
       <tbody>
-        {students.map((student) => (
-          <tr key={student.id}>
+        {students.map((student, index) => (
+          <tr key={index}>
             <td>{student.name}</td>
             <td>{student.email}</td>
             <td>{student.age}</td>
             <td>
-              <button onClick={() => setEditStudent(student)}>Edit</button>
-              <button onClick={() => deleteStudent(student.id)}>Delete</button>
+              <div className="action-buttons">
+                <button className="edit-btn" onClick={() => setEditStudent({ ...student, index })}>
+                  Edit
+                </button>
+                <button className="delete-btn" onClick={() => deleteStudent(index)}>
+                  Delete
+                </button>
+              </div>
             </td>
           </tr>
         ))}
@@ -26,4 +32,4 @@ function StudentTable({ students, deleteStudent, setEditStudent }) {
   );
 }
 
-export default StudentTable
+export default StudentTable;

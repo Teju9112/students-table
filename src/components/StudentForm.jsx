@@ -73,4 +73,4 @@ function StudentForm({ addStudent, editStudent, updateStudent, setEditStudent })
   );
 }
 
-export default StudentForm
+export default StudentForm;
