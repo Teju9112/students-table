@@ -101,6 +101,7 @@ tr:hover {
   color: white;
 }
 
+/* Edit button Hover*/
 .edit-btn:hover {
   background-color: #43a047;
 }
